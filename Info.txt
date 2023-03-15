@@ -6,3 +6,7 @@ Os valores disponiveis para input que podem tocar um som são:
     a, b, c, d, e, f, g
 
 Para poder tocar um som nulo, ou seja, vazio, insira um valor diferente dos informados acima.
+
+Exemplo:
+    abcdefg,
+    aaaabbcc,

@@ -24,21 +24,50 @@ function Home() {
 
     async function play() {
         setDisabled(true);
-        const valores = valInput.split('');
+        const vals = valInput.split('');
         
-        for (const val of valores) {
-            if (val <= 6) {
-                setCurrentSoundIndex(val);
-                await loadSound(val);
-                await playSound();
-                await new Promise(resolve => setTimeout(resolve, 3000)); // pausa de 1 segundo
-                await unloadSound();
-            } else {
+        for (const val of vals) {
+            if ( val == 'a') {
+                executeSong(0);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+            } else if (val == 'b') {
+                executeSong(1);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            } else if (val == 'c') {
+                executeSong(2);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            } else if (val == 'd') {
+                executeSong(3);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            } else if (val == 'e') {
+                executeSong(4);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            } else if (val == 'f') {
+                executeSong(5);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            } else if (val == 'g') {
+                executeSong(6);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+            }
+            else {
                 await new Promise(resolve => setTimeout(resolve, 7000)); 
             }
           }
           setCurrentSoundIndex(null);
           setDisabled(false);
+    }
+
+    async function executeSong(val) {
+        setCurrentSoundIndex(val);
+        await loadSound(val);
+        await playSound();
+        await unloadSound();
     }
 
     async function loadSound(i) {
@@ -79,9 +108,7 @@ function Home() {
                 {sounds.map((key, index) => <View key={key} index={index} style={style.sound}>
                     <CircleSong/>
                     {currentSoundIndex == index ? 
-                        <Feather name="circle" size={24} color="black"/>
-                            :
-                        null}
+                        <Feather name="circle" size={24} color="black"/> : null}
                 </View> )}
             </View>
         
@@ -89,7 +116,7 @@ function Home() {
                 style={style.entry}
                 keyboardType={'numeric'}
                 value={valInput}
-                onChangeText={newText => setValInput(newText.replace(/[^0-9]/g, ''))} 
+                onChangeText={newText => setValInput(newText.replace(' ', ''))} 
             />
 
             <Pressable 
@@ -105,7 +132,7 @@ function Home() {
                 disabled={disabled}
                 style={[style.button, disabled && style.disabledButton]} 
             >
-                <Text style={style.font} >Reset</Text>
+                <Text style={style.font}>Reset</Text>
             </Pressable>
         </View>
     );

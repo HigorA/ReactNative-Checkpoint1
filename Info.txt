@@ -1,0 +1,8 @@
+Checkpoint 1 - React Native.
+    App que toca sons e apresenta um retorno visual do som que está sendo tocado no momento da execução.
+
+
+Os valores disponiveis para input que podem tocar um som são:
+    a, b, c, d, e, f, g
+
+Para poder tocar um som nulo, ou seja, vazio, insira um valor diferente dos informados acima.

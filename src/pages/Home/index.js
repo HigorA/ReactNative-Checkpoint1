@@ -112,7 +112,7 @@ function Home() {
                 </View> )}
             </View>
         
-            <TextInput placeholder="Input" 
+            <TextInput placeholder="Informe o som a ser tocado: a,b,c,d,e,f,g" 
                 style={style.entry}
                 keyboardType={'numeric'}
                 value={valInput}
@@ -144,7 +144,7 @@ const style = StyleSheet.create({
         width: wp('100%'),
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#292929',
+        backgroundColor: '#424243',
     },
     
     entry: {
